@@ -1,3 +1,5 @@
+import ContactsListStyled from './ContactList.styled';
+
 export const ContactList = ({ contacts, deleteContact }) => {
   const contactsList = contacts.map(({ name, id, number }) => (
     <li key={id}>
@@ -8,5 +10,9 @@ export const ContactList = ({ contacts, deleteContact }) => {
     </li>
   ));
 
-  return <ul>{contactsList}</ul>;
+  return (
+    <ContactsListStyled>
+      <ul>{contactsList}</ul>
+    </ContactsListStyled>
+  );
 };

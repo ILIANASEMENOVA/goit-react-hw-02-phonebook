@@ -1,8 +1,8 @@
+import { ContactForm } from 'components/ContactForm/ContactForm';
+import { ContactList } from 'components/ContactList/ContactList';
+import { Filter } from 'components/Filter/Filter';
 import { nanoid } from 'nanoid';
 import { Component } from 'react';
-import { ContactForm } from './ContactForm';
-import { Filter } from './Filter';
-import { ContactList } from './ContactList';
 
 export class App extends Component {
   state = {
@@ -54,6 +54,17 @@ export class App extends Component {
   };
 
   render() {
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        fontSize: 40,
+        color: '#010101',
+        paddingTop: '100px',
+      }}
+    ></div>;
     const { filter } = this.state;
     const findedContacts = this.findContacts();
 

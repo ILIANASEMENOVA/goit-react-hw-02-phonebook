@@ -1,3 +1,5 @@
+import FilterStyled from './Filter.styled';
+
 export const Filter = ({ filter, updateState, filterInfo }) => {
   const handleChange = e => {
     const { value, name } = e.target;
@@ -5,7 +7,7 @@ export const Filter = ({ filter, updateState, filterInfo }) => {
   };
 
   return (
-    <div>
+    <FilterStyled>
       <label>
         Find contacts by name
         <input
@@ -17,6 +19,6 @@ export const Filter = ({ filter, updateState, filterInfo }) => {
         />
       </label>
       {filterInfo}
-    </div>
+    </FilterStyled>
   );
 };
