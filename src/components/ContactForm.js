@@ -1,9 +1,12 @@
 import { Component } from 'react';
 
+const INITIAL_STATE = {
+  name: '',
+  number: '',
+};
 export class ContactForm extends Component {
   state = {
-    name: '',
-    number: '',
+    ...INITIAL_STATE,
   };
 
   handleChange = e => {
@@ -14,7 +17,12 @@ export class ContactForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
 
-    this.props.addContact(this.state);
+    const isExist = this.props.addContact(this.state);
+    if (!isExist) this.reset();
+  };
+
+  reset = () => {
+    this.setState({ ...INITIAL_STATE });
   };
 
   render() {

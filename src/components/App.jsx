@@ -26,7 +26,7 @@ export class App extends Component {
     );
     if (isExist) {
       alert(`${contact.name} is already in contacts`);
-      return;
+      return isExist;
     }
 
     const newContact = {
@@ -57,13 +57,22 @@ export class App extends Component {
     const { filter } = this.state;
     const findedContacts = this.findContacts();
 
+    const results = findedContacts.length;
+    let filterInfo = '';
+    if (!results && !filter) filterInfo = <p>Your contact list is empty</p>;
+    if (!results && filter) filterInfo = <p>Not Finded</p>;
+
     return (
       <div>
         <h1>Phonebook</h1>
         <ContactForm addContact={this.addContact} />
 
         <h2>Contacts</h2>
-        <Filter filter={filter} updateState={this.updateState} />
+        <Filter
+          filter={filter}
+          updateState={this.updateState}
+          filterInfo={filterInfo}
+        />
         <ContactList
           contacts={findedContacts}
           deleteContact={this.deleteContact}
