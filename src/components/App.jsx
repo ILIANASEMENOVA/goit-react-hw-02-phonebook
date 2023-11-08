@@ -22,7 +22,7 @@ export class App extends Component {
 
   addContact = contact => {
     const isExist = this.state.contacts.some(
-      ({ name }) => name === contact.name
+      ({ name }) => name.toLowerCase() === contact.name.toLowerCase()
     );
     if (isExist) {
       alert(`${contact.name} is already in contacts`);
@@ -54,17 +54,6 @@ export class App extends Component {
   };
 
   render() {
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101',
-        paddingTop: '100px',
-      }}
-    ></div>;
     const { filter } = this.state;
     const findedContacts = this.findContacts();
 
@@ -79,15 +68,12 @@ export class App extends Component {
         <ContactForm addContact={this.addContact} />
 
         <h2>Contacts</h2>
-        <Filter
-          filter={filter}
-          updateState={this.updateState}
-          filterInfo={filterInfo}
-        />
+        <Filter filter={filter} updateState={this.updateState} />
         <ContactList
           contacts={findedContacts}
           deleteContact={this.deleteContact}
         />
+        {filterInfo}
       </div>
     );
   }

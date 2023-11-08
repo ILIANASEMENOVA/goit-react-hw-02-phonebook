@@ -1,6 +1,6 @@
 import FilterStyled from './Filter.styled';
 
-export const Filter = ({ filter, updateState, filterInfo }) => {
+export const Filter = ({ filter, updateState }) => {
   const handleChange = e => {
     const { value, name } = e.target;
     updateState(name, value);
@@ -18,7 +18,6 @@ export const Filter = ({ filter, updateState, filterInfo }) => {
           onChange={handleChange}
         />
       </label>
-      {filterInfo}
     </FilterStyled>
   );
 };
